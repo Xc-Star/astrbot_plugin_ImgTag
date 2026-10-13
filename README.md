@@ -1,14 +1,26 @@
-# astrbot-plugin-helloworld
+# AstrBot ImgTag 表情包图库插件
 
-AstrBot 插件模板 / A template plugin for AstrBot plugin feature
+本插件基于 [ImgTag](https://github.com/127Wzc/ImgTag) 项目提供的外部 REST API，将引用消息中的图片上传到 ImgTag 图库，并使用 ImgTag 的 AI 分析生成标签和描述。
 
-> [!NOTE]
-> This repo is just a template of [AstrBot](https://github.com/AstrBotDevs/AstrBot) Plugin.
-> 
-> [AstrBot](https://github.com/AstrBotDevs/AstrBot) is an agentic assistant for both personal and group conversations. It can be deployed across dozens of mainstream instant messaging platforms, including QQ, Telegram, Feishu, DingTalk, Slack, LINE, Discord, Matrix, etc. In addition, it provides a reliable and extensible conversational AI infrastructure for individuals, developers, and teams. Whether you need a personal AI companion, an intelligent customer support agent, an automation assistant, or an enterprise knowledge base, AstrBot enables you to quickly build AI applications directly within your existing messaging workflows.
+## 功能
 
-# Supports
+- 仅 AstrBot 识别为管理员的用户可以执行 `/偷图`；非管理员触发时插件不回复。
+- 管理员引用一条包含图片的消息后发送 `/偷图`，即可上传引用图片；可以在命令后附加标签。
+- 上传后会提示正在解析，并轮询 ImgTag 获取 AI 生成的标签和描述。
+- 分析完成后以图片、标签和主体描述组成富媒体消息回复，最长等待约 2 分钟。
 
-- [AstrBot Repo](https://github.com/AstrBotDevs/AstrBot)
-- [AstrBot Plugin Development Docs (Chinese)](https://docs.astrbot.app/dev/star/plugin-new.html)
-- [AstrBot Plugin Development Docs (English)](https://docs.astrbot.app/en/dev/star/plugin-new.html)
+## 配置
+
+在 AstrBot 插件配置中填写：
+
+- **ImgTag 服务域名**：只填写域名，例如 `https://imgtag.example.com`。插件会自动拼接 `/api/v1/external/images`。
+- **ImgTag API Key**：在 ImgTag 用户中心生成的 API Key。插件通过 `X-API-Key` 请求头认证；不要填写登录 JWT。
+
+## 使用方法
+
+1. 管理员引用一条含图片的消息。
+2. 发送 `/偷图 标签1 标签2`，也支持 `/偷图 标签1,标签2` 或 `/偷图 标签1，标签2`。
+3. 标签可用空格、英文逗号或中文逗号分隔；插件会将其作为自定义标签上传，同时保留 ImgTag AI 分析。
+4. 等待“正在解析中”提示后的富媒体分析结果。
+
+若引用图片没有可直接访问的 HTTP(S) 链接，插件会通过 AstrBot 文件服务提供图片。此时需要配置 `callback_api_base`，并确保 ImgTag 服务可以访问该地址。

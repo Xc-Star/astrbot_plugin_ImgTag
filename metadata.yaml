@@ -1,6 +1,16 @@
-name: helloworld # 插件唯一识别名，以 astrbot_plugin_ 前缀开头
-display_name: helloworld # 用于展示的名字，可以是方便人类阅读的名字（需要版本 >= v4.5.0，低版本不会报错，请放心填写）
-desc: AstrBot 插件示例。 # 插件简短描述
-version: v1.3.0 # 插件版本号。格式：v1.1.1 或者 v1.1
-author: Soulter # 作者
-repo: https://github.com/Soulter/helloworld # 插件的仓库地址
+name: astrbot_plugin_ImgTag # 这是你的插件的唯一识别名。
+display_name: 偷图！
+desc: 这是基于 ImgTag AI图床的插件。用于将群友表情包上传到自己的图床 # 插件简短描述
+version: v1.0.0 # 插件版本号。格式：v1.1.1 或者 v1.1
+author: Xc_Star # 作者
+repo: https://github.com/Xc-Star/astrbot_plugin_ImgTag # 插件的仓库地址
+tags:
+  - "表情包"
+  - "偷图"
+  - "图床"
+  - "ImgTag"
+keywords:
+  - 表情包
+  - 偷图
+  - 图床
+  - ImgTag

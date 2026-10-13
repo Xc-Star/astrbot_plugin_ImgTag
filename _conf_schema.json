@@ -1,0 +1,14 @@
+{
+  "api_base_url": {
+    "description": "ImgTag 服务域名",
+    "type": "string",
+    "hint": "仅填写域名，例如 https://imgtag.example.com",
+    "default": ""
+  },
+  "api_key": {
+    "description": "ImgTag 用户中心生成的 API Key",
+    "type": "string",
+    "hint": "通过 X-API-Key 请求头发送，不要填写登录 JWT",
+    "default": ""
+  }
+}
