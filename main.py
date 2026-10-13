@@ -173,7 +173,7 @@ class ImgTagPlugin(Star):
                 if isinstance(tags, list)
                 else []
             )
-            tag_line = "🏷️ "
+            tag_line = "🏷️ 表情包"
             if tag_names:
                 tag_line += f" · {' · '.join(tag_names)}"
             message_chain.append(Plain(f"{tag_line}\n"))
