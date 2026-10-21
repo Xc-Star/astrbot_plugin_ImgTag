@@ -1,7 +1,7 @@
 name: astrbot_plugin_ImgTag # 这是你的插件的唯一识别名。
 display_name: 偷图！
 desc: 这是基于 ImgTag AI图床的插件。用于将群友表情包上传到自己的图床 # 插件简短描述
-version: v1.0.0 # 插件版本号。格式：v1.1.1 或者 v1.1
+version: v1.1.0 # 插件版本号。格式：v1.1.1 或者 v1.1
 author: Xc_Star # 作者
 repo: https://github.com/Xc-Star/astrbot_plugin_ImgTag # 插件的仓库地址
 tags:

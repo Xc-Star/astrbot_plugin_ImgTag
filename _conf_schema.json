@@ -10,5 +10,11 @@
     "type": "string",
     "hint": "通过 X-API-Key 请求头发送，不要填写登录 JWT",
     "default": ""
+  },
+  "callback_api_key": {
+    "description": "AstrBot 回调接口使用的 API Key",
+    "type": "string",
+    "hint": "可选配置，若不配置则会循环对ImgTag发送请求确认是否分析完。在设置中选择OpenAPI即可创建API Key，一定要勾选plugin权限，否则无法回调。",
+    "default": ""
   }
 }
